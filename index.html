@@ -134,7 +134,8 @@ button:hover{
 <body><div class="card">
     <div class="content">
         <h1>Wedding Invitation</h1>
-        <div class="guest">Dear Sneha And Dipok</div>
+        <div class="guest" id="guestName">
+Dear Sneha And Dipok</div>
         <div class="names">Rahim <span class="heart">❤</span> Subaita</div>
         <p>You are cordially invited to celebrate our wedding.</p>
         <div class="details">
@@ -145,6 +146,13 @@ button:hover{
         <button onclick="showMessage()">Click for Surprise</button>
     </div>
 </div><script>
+
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+
+if(name){
+  document.getElementById("guestName").innerText = "Dear " + name;
+}
 function showMessage(){
     alert("We can't wait to celebrate with you! 💍✨");
 }
